@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 #An array of arrays where each array holds a character and its corresponding morse code value
 
 symbol_list = [

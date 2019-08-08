@@ -1,5 +1,8 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 #importing the character array
-import symbol_list as SL
+from components.symbol_list import symbol_list
 
 def convert_character(char, target):
 	"""
@@ -10,15 +13,14 @@ def convert_character(char, target):
 	target is the direction of conversion (numerical): 0: alphabet to morse, 1: morse to alphabet
 	"""
 	if (target == 0):
-		convert = 1 #the value of convert defines which value is to be returned
+		convert = 1 #the value of convert defines which value from the symbol array is to be returned
 		char = char.upper()
 	elif (target == 1):
 		convert = 0
 	else:
-		print("Error: the second function argument can only be 0 or 1 (was %s)" % target)
-		return
+		raise Exception("Error: the second function argument can only be 0 or 1 (was %s)" % target)
 	#filter the correct array corresponding the "char" argument
-	found_target = list(filter(lambda char_pair: char_pair[target] == char, SL.symbol_list))
+	found_target = list(filter(lambda char_pair: char_pair[target] == char, symbol_list))
 	try:
 		return_value = found_target[0][convert]
 	except IndexError:
